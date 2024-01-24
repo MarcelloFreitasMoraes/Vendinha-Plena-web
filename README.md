@@ -1,67 +1,40 @@
-# PETZ
- 
-Teste técnico para desenvolvimento frontend – React/NextJS.
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Setup
+## Getting Started
 
-Instale as dependências do código com seu gerenciador de pacotes favorito.
+First, run the development server:
 
-```shell
-npm i
-yarn 
-```
-
-## Inicie o projeto
-```shell
+```bash
 npm run dev
+# or
 yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
 
-## Objetivo
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-Desenvolver um web app em Typescript, a partir deste projeto nextjs (clone o repositório e desenvolva em cima dele), que implemente o design descrito na próxima seção.
+You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
 
-### Requisitos
-- Criar um código desacoplado, organizado e testável
-- Escrever testes unitários com jest e react-testing-library
-- Demonstrar conhecimento do uso de hooks
-- Demonstrar conhecimento de modularização de componentes
-- Utilizar CSS (puro, in js – styled components / emotion, como preferir) ou Sass para estilizar as páginas
-- Demonstrar organização, desacoplamento e separação de responsabilidades no código; o uso de padrões arquiteturais como MVVM, CLEAN, etc., é bem-vindo
-- Demonstrar conhecimento de TypeScript e suas features para organizar o projeto
-- Tratar possíveis erros de API
+[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
 
-Configurar as bibliotecas e o projeto para fazer os testes unitários também é parte do desafio.
+The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
-### Diferencial
-- Demonstrar conhecimentos de técnicas específicas de NextJS para lidar com estilos, server-side rendering, code splitting, etc. 
+This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-### Uso de APIs
-- Usar `http://localhost:3000/api/scheduling/date` para puxar as datas disponíveis para agendamento
-- Usar `htttp://localhost:3000/api/scheduling/time` para puxar os horários disponíveis para agendamento
-- Usar a [pokéAPI](https://pokeapi.co/) para trazer os dados de região, cidades, e pokémons a serem usados no agendamento
+## Learn More
 
-Entender o contrato das APIs é também parte do teste.
+To learn more about Next.js, take a look at the following resources:
 
-### Entrega
-O prazo para entrega é de **07 dias**. Responda o e-mail do teste com o link para o repositório público onde você armazenar seu código.
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-## Design a Ser Implementado
-O site deve implementar o design descrito nas telas abaixo. Todas as imagens necessárias estão na pasta `./public/images`.
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-A fonte utilizada em todas as páginas, e inclusive no logo, é chamada `Inter` e está disponível no Google Fonts.
+## Deploy on Vercel
 
-Este figma pode ser utilizado para consulta: https://www.figma.com/file/WU8hciI3zIX5RARW6nvs4i/Untitled?node-id=109%3A131&t=xBBhYvrgvf6H9On7-1
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-### Home
-![home page](public/test-sample/Home.png)
-Obs: O logo deve seguir o seguinte comportamento, iniciando expandido na home, e reduzindo após 05 segundos, da direita para a esquerda. Ele deve estar na forma reduzida nas demais páginas, abrindo no hover do mouse:
-![](public/test-sample/logo-behavior.png)
-### Quem Somos
-![](public/test-sample/Quem%20Somos.png)
-### Agendar Consulta
-![](public/test-sample/Agendar%20Consulta.png)
-#### Caso de Sucesso
-![](public/test-sample/Agendar%20Consulta%20Sucesso.png)
-#### Caso de Falha
-![](public/test-sample/Agendar%20Consulta%20Falha.png)
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
