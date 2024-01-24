@@ -1,16 +1,16 @@
 import { http } from '@/global/config/baseUrl'
-import { CreateClientFormData } from '@/global/types/types'
+import { CreateDebtFormData } from '@/global/types/types'
 import stale from '@/global/utils/stale'
 import { useQuery, useMutation } from '@tanstack/react-query'
 
 export const ClientKey = 'clientData'
 
-export default function useClientData() {
-    const query = useQuery<any, any, CreateClientFormData, any>(
+export default function useDebitData() {
+    const query = useQuery<any, any, CreateDebtFormData, any>(
         [ClientKey],
         () =>
             http
-                .get(`Cliente/GetOData`)
+                .get(`Divida/GetOData`)
                 .then((res) => {
                     return res.data.data
                 })
@@ -23,14 +23,15 @@ export default function useClientData() {
     )
 
     const mutation = useMutation(
-        (values: CreateClientFormData) => {
-            const method = values.id ? 'put' : 'post'
+        (values: CreateDebtFormData) => {
+            const method = values.clienteId ? 'put' : 'post'
+            const action = values.clienteId ? 'Debit/Pagar' : 'Debit'
 
             const body: any = {
                 ...values,
-            } as CreateClientFormData
+            } as CreateDebtFormData
 
-            return http[method](`Cliente/`, ...body)
+            return http[method](`${action}`, ...body)
         },
         {
             onSuccess: ({ data }) => {
@@ -41,7 +42,7 @@ export default function useClientData() {
     )
 
     return {
-        ClientQuery: query,
-        ClientMutation: mutation,
+        DebitQuery: query,
+        DebitMutation: mutation,
     }
 }
