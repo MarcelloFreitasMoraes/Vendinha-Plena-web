@@ -21,9 +21,7 @@ const THEME = createTheme({
     },
     typography: {
         fontFamily: '"Open Sans", sans-serif',
-        h3: {
-            fontSize: '2.5rem',
-        },
+        fontSize: 16,
     },
     components: {
         MuiAppBar: {

@@ -8,12 +8,12 @@ const Header: React.FC = () => {
         <Grid
             container
             spacing={5}
-            sx={{
-                backgroundColor: (theme) => theme.palette.primary.dark,
+                        sx={{
+                backgroundColor: (theme) => theme.palette.common.black,
                 height: '100px',
                 margin: 0,
                 justifyContent: 'space-between',
-                alignItems: 'center',
+                alignItems: 'center',               
             }}
         >
             <Grid item xs={12} sm={3} sx={{ paddingTop: '0 !important' }}>
@@ -25,7 +25,7 @@ const Header: React.FC = () => {
                 sm={3}
                 sx={{ paddingTop: '0 !important'}}
             >
-                <span style={{ margin: '0 10px' }}>
+                <span style={{ margin: '0 80px' }}>
                   <Link href={'/'} >
                     <Home width={40} height={40} />
                     </Link>
