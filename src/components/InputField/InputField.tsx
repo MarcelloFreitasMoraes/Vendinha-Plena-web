@@ -1,8 +1,9 @@
 import React from 'react'
 import { Box, Grid, InputAdornment, TextField, Typography } from '@mui/material'
 import { MUIProps } from '../../../application/protocols/mui-props'
-import {  } from '@emotion/react'
+import {} from '@emotion/react'
 import theme from '@/styles/themes/theme'
+import { Search } from '@/global/assets/icons/Search'
 
 export type InputFieldProps = {
     id?: string
@@ -12,10 +13,8 @@ export type InputFieldProps = {
     error?: any
     disabled?: boolean
     onBlur?: (e: any) => void
-    onChange?: (e: any) => void  
-    required?: boolean  
-    // labelIcons?: React.ReactNode[]
-    flag?: React.ReactNode
+    onChange?: (e: any) => void
+    flag?: boolean
 } & MUIProps
 
 export const InputField: React.FC<InputFieldProps> = ({
@@ -28,29 +27,20 @@ export const InputField: React.FC<InputFieldProps> = ({
     inputProps = {},
     InputProps = {},
     disabled = false,
-    onChange,  
-    required = false,
+    onChange,
     onBlur,
-    // labelIcons,
     flag,
     ...otherProps
 }) => {
+    console.log(flag, 'flag')
+
     return (
         <Box {...otherProps} sx={{ width: '100%' }}>
             {label && (
                 <Box display={'flex'} gap={2} marginBottom={'2px'}>
                     <Typography color={error ? 'error' : 'grey20'} mb={1}>
-                        {label} {required && '*'}
+                        {label}
                     </Typography>
-                    {/* {labelIcons && (
-            <Grid display={'flex'} gap={2.5}>
-              {labelIcons.map((icon, index) => (
-                <Grid item key={index} sx={{ cursor: 'pointer' }}>
-                  {icon}
-                </Grid>
-              ))}
-            </Grid>
-          )} */}
                 </Box>
             )}
             <TextField
@@ -60,50 +50,56 @@ export const InputField: React.FC<InputFieldProps> = ({
                 variant="outlined"
                 error={!!error}
                 fullWidth
-                onChange={onChange}              
+                onChange={onChange}
                 onBlur={onBlur}
                 type="text"
                 disabled={disabled}
                 inputProps={{
                     'data-testid': id,
-                }}             
+                }}
                 InputProps={{
                     ...InputProps,
-                    endAdornment: flag ? (
-                      <InputAdornment position="end">{flag}</InputAdornment>
-                    ) : null,
-                  }}
+                    endAdornment: (
+                        <InputAdornment position="end">
+                            <Search />
+                        </InputAdornment>
+                    ),
+                }}
                 {...inputProps}
                 {...otherProps}
                 sx={{
                     backgroundColor: theme.palette.background.default,
                     borderRadius: '3px',
+                    minWidth: '600px',
                     '& input': {
-                      height: '23px',
+                        height: '23px',
                     },
                     '.MuiInputBase-root': {
-                      borderRadius: '3px',
+                        borderRadius: '3px',
                     },
                     '.MuiInputBase-input': {
-                      padding: '6px 10px',
-                      fontSize: '0.9rem',
-                      color: theme.palette.primary.dark,
-                      '&:disabled': {
-                        '-webkit-text-fill-color': 'inherit !important',
-                        borderColor: '#d4d4d4',
-                        backgroundColor: 'rgba(239, 239, 239, 0.3)',
-                      },
+                        padding: '6px 10px',
+                        fontSize: '0.9rem',
+                        color: theme.palette.primary.dark,
+                        '&:disabled': {
+                            '-webkit-text-fill-color': 'inherit !important',
+                            borderColor: '#d4d4d4',
+                            backgroundColor: 'rgba(239, 239, 239, 0.3)',
+                        },
                     },
                     '.MuiInputBase-multiline': {
-                      padding: '4px',
+                        padding: '4px',
                     },
                     '.MuiOutlinedInput-notchedOutline': {
-                      borderColor: theme.palette.primary.dark,
+                        borderColor: theme.palette.primary.dark,
                     },
-                  }}
-                  
+                }}
             />
-            <Grid display={'flex'} justifyContent={'space-between'} marginTop={'3px'}>
+            <Grid
+                display={'flex'}
+                justifyContent={'space-between'}
+                marginTop={'3px'}
+            >
                 {helperText && (
                     <Typography
                         color={error ? 'error' : 'grey15'}

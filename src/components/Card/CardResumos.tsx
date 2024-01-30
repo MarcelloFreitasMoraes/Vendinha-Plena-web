@@ -5,7 +5,7 @@ import { Grid } from '@mui/material'
 interface CardResumosProps {
     title: string
     qtde: string
-    qtdeValor: string
+    qtdeValor: string | number
     titleTotal: string
     valorTotal: string
     clientJustify?: boolean

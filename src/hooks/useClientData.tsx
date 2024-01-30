@@ -12,7 +12,7 @@ export default function useClientData() {
             http
                 .get(`Cliente/GetOData`)
                 .then((res) => {
-                    return res.data.data
+                    return res.data.d.results
                 })
                 .catch((err) => err),
         {
@@ -39,6 +39,7 @@ export default function useClientData() {
             },
         }
     )
+    console.log(query.data, 'query')
 
     return {
         ClientQuery: query,

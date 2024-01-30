@@ -1,18 +1,23 @@
 import { http } from '@/global/config/baseUrl'
-import { CreateDebtFormData } from '@/global/types/types'
+import { CreateDebtFormData, ResultItem } from '@/global/types/types'
 import stale from '@/global/utils/stale'
 import { useQuery, useMutation } from '@tanstack/react-query'
 
-export const ClientKey = 'clientData'
+export const DebitKey = 'debitData'
 
 export default function useDebitData() {
-    const query = useQuery<any, any, CreateDebtFormData, any>(
-        [ClientKey],
+    const query = useQuery<
+        any,
+        any,
+        { d: { __count: number; results: ResultItem[] } },
+        any
+    >(
+        [DebitKey],
         () =>
             http
                 .get(`Divida/GetOData`)
                 .then((res) => {
-                    return res.data.data
+                    return res?.data
                 })
                 .catch((err) => err),
         {

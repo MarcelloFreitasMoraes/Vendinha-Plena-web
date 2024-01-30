@@ -21,7 +21,7 @@ const Perfil: React.FC = () => {
     }}
 >
     <Grid item xs={12} sm={8}>
-      <InputField name={'teste'} />
+      <InputField name={'teste'} flag />
     </Grid>
     </Grid>
   );
