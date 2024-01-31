@@ -1,34 +1,52 @@
 import { CardList, Content, InputField } from '@/components'
-import useClientData from '@/hooks/useClientData'
-import { Grid } from '@mui/material'
 import React from 'react'
+import * as M from '@mui/material'
+import useDebitData from '@/hooks/useDebitData'
+import { useRouter } from 'next/router'
 
 const Client: React.FC = () => {
-    const { ClientQuery, ClientMutation } = useClientData()
+    const { DebitQuery } = useDebitData()
+    const { push } = useRouter()
+
+    const handleItemClick = (itemId: number) => {
+        push(`/ClientDetails?id=${itemId}`)
+    }
     return (
         <Content title={'Clientes'}>
-            <Grid mt={1} mb={4}>
+            <M.Grid mt={1} mb={4}>
                 <InputField name={'teste'} />
-            </Grid>
-            {ClientQuery &&
-                ClientQuery?.data?.d?.results.map((item) => {
-                    console.log(item, 'item')
-
+            </M.Grid>
+            {DebitQuery &&
+                DebitQuery?.data?.d?.results.map((item) => {
                     return (
-                        <CardList.Root key={item.id}>
-                            <CardList.Resumos
-                                title="Maria Helena de Rodrigues"
-                                qtde="CPF:"
-                                qtdeValor="56640484846"
-                                titleTotal="E-mail:"
-                                valorTotal="maria.helena@gmail.com"
-                                clientJustify
-                            />
-                            <CardList.Footer
-                                titleDivida="Valor da dívida:"
-                                valorTotal="R$ 990,90"
-                            />
-                        </CardList.Root>
+                        <M.Grid
+                            key={item.id}
+                            mb={2}
+                            onClick={() => handleItemClick(item.id)}
+                        >
+                            <CardList.Root>
+                                <CardList.Resumos
+                                    title={item?.cliente?.nome || ''}
+                                    qtde="CPF:"
+                                    qtdeValor={item?.cliente?.cpf || ''}
+                                    titleTotal="E-mail:"
+                                    valorTotal={item?.cliente?.email || ''}
+                                    clientJustify
+                                />
+                                <CardList.Footer
+                                    titleDivida="Valor da dívida:"
+                                    valorTotal={
+                                        `R$ ${item?.valor?.toLocaleString(
+                                            'pt-BR',
+                                            {
+                                                minimumFractionDigits: 2,
+                                                maximumFractionDigits: 2,
+                                            }
+                                        )}` || '0'
+                                    }
+                                />
+                            </CardList.Root>
+                        </M.Grid>
                     )
                 })}
         </Content>

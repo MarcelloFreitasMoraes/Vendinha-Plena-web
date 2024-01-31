@@ -39,6 +39,7 @@ export default function useClientData() {
             },
         }
     )
+    console.log(query.data, 'query')
 
     return {
         ClientQuery: query,

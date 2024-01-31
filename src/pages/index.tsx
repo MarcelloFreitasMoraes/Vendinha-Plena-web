@@ -1,5 +1,4 @@
-import { Content } from '@/components'
-import { CardList } from '@/components/Card'
+import { Content, CardList } from '@/components'
 import { ResultItem } from '@/global/types/types'
 import { calculateTotals } from '@/global/utils/debit'
 import useDebitData from '@/hooks/useDebitData'
@@ -27,12 +26,12 @@ export default function Home() {
                 <CardList.Resumos
                     title="Dívidas em aberto"
                     qtde="Qtde:"
-                    qtdeValor={totalDebits}
+                    qtdeValor={totalDebits  || '0'}
                     titleTotal="Valor total:"
                     valorTotal={`R$ ${totalValue.toLocaleString('pt-BR', {
                         minimumFractionDigits: 2,
                         maximumFractionDigits: 2,
-                    })}`}
+                    })}` || '0'}
                 />
             </CardList.Root>
             <M.Grid mt={2}>
@@ -40,12 +39,12 @@ export default function Home() {
                     <CardList.Resumos
                         title="Dívidas pagas"
                         qtde="Qtde:"
-                        qtdeValor={debitPaid}
+                        qtdeValor={debitPaid  || '0'}
                         titleTotal="Valor total:"
                         valorTotal={`R$ ${totalPaid.toLocaleString('pt-BR', {
                             minimumFractionDigits: 2,
                             maximumFractionDigits: 2,
-                        })}`}
+                        })}`|| '0'}
                     />
                 </CardList.Root>
             </M.Grid>
@@ -54,7 +53,7 @@ export default function Home() {
                     <CardList.Resumos
                         title="Dívidas pagas"
                         qtde="Qtde:"
-                        qtdeValor={fullRegistration}
+                        qtdeValor={fullRegistration || '0'}
                         titleTotal="Valor total:"
                         valorTotal={`R$ ${totalFullRegistration.toLocaleString(
                             'pt-BR',
@@ -62,7 +61,7 @@ export default function Home() {
                                 minimumFractionDigits: 2,
                                 maximumFractionDigits: 2,
                             }
-                        )}`}
+                        )}` || '0'}
                     />
                 </CardList.Root>
             </M.Grid>
