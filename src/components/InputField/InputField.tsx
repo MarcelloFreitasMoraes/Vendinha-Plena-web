@@ -32,7 +32,6 @@ export const InputField: React.FC<InputFieldProps> = ({
     flag,
     ...otherProps
 }) => {
-    console.log(flag, 'flag')
 
     return (
         <Box {...otherProps} sx={{ width: '100%' }}>
@@ -57,14 +56,20 @@ export const InputField: React.FC<InputFieldProps> = ({
                 inputProps={{
                     'data-testid': id,
                 }}
+                // InputProps={{
+                //     ...InputProps,
+                //     endadornment: (
+                //         <InputAdornment position="end">
+                //             <Search />
+                //         </InputAdornment>
+                //     ),
+                // }}
                 InputProps={{
                     ...InputProps,
-                    endAdornment: (
-                        <InputAdornment position="end">
-                            <Search />
-                        </InputAdornment>
-                    ),
-                }}
+                    endAdornment: flag ? (
+                      <InputAdornment position="end"><Search /></InputAdornment>
+                    ) : null,
+                  }}
                 {...inputProps}
                 {...otherProps}
                 sx={{

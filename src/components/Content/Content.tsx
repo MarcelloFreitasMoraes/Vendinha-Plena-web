@@ -7,10 +7,8 @@ interface HomeContentProps {
 }
 const Content: React.FC<HomeContentProps> = ({title, children}) => {
     return (
-        <Grid
-            container
-            spacing={5}
-            mt={1}
+        <Grid            
+            mt={8}
             sx={{
                 display: 'flex',
                 alignItems: 'center',
@@ -18,7 +16,7 @@ const Content: React.FC<HomeContentProps> = ({title, children}) => {
                 flexDirection: 'column',          
             }}
         >
-            <Grid item xs={12} sm={3}>
+            <Grid >
                 <Typography
                     variant="h5"
                     fontWeight={700}
@@ -27,7 +25,7 @@ const Content: React.FC<HomeContentProps> = ({title, children}) => {
                     {title}                 
                 </Typography>
             </Grid>
-            <Grid item xs={12} sm={3} paddingLeft={'0 !important'}>
+            <Grid>
                 {children}                
             </Grid>
         </Grid>

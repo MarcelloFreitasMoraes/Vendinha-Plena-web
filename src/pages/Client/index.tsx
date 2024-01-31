@@ -14,7 +14,7 @@ const Client: React.FC = () => {
     return (
         <Content title={'Clientes'}>
             <M.Grid mt={1} mb={4}>
-                <InputField name={'teste'} />
+                <InputField name={'teste'} flag />
             </M.Grid>
             {DebitQuery &&
                 DebitQuery?.data?.d?.results.map((item) => {
@@ -23,6 +23,7 @@ const Client: React.FC = () => {
                             key={item.id}
                             mb={2}
                             onClick={() => handleItemClick(item.id)}
+                            sx={{cursor:'pointer'}}
                         >
                             <CardList.Root>
                                 <CardList.Resumos
