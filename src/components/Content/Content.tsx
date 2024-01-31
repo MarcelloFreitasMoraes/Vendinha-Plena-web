@@ -13,7 +13,7 @@ const Content: React.FC<HomeContentProps> = ({title, children}) => {
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                flexDirection: 'column',          
+                flexDirection: 'column',    
             }}
         >
             <Grid >

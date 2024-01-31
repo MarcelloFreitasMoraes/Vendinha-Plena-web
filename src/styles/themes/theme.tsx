@@ -9,11 +9,11 @@ const THEME = createTheme({
         },
         secondary: {
             main: '#AFDA51',
-            light: '#E8E8E8',
+            light: '#FFFFFF',
             dark: '#404040',
         },
         background: {
-            default: '#E8E8E8',
+            default: '#FAFAFA',
         },
         common: {
             black: 'rgba(0, 0, 0, 0.3)',

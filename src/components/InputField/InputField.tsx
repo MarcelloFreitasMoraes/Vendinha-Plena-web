@@ -75,7 +75,6 @@ export const InputField: React.FC<InputFieldProps> = ({
                 sx={{
                     backgroundColor: theme.palette.background.default,
                     borderRadius: '3px',
-                    minWidth: '600px',
                     '& input': {
                         height: '23px',
                     },
